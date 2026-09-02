@@ -3,15 +3,15 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Aluno;
+use App\Models\Livraria;
 
-class AlunoSeeder extends Seeder
+class LivrariaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Aluno::factory()->count(5)->create();
+        Livraria::factory()->count(5)->create();
     }
 }

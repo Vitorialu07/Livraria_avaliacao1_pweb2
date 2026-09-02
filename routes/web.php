@@ -31,9 +31,27 @@ Route::post(
     [LivrariaController::class, 'search']
 )->name('livraria.search');
 
-/*
-Route::get('/aluno', function () {
-    return view('aluno.list');
-    //return "<h3>Olá mundo Laravel!</h3>";
+Route::post(
+    '/usuario/store',
+    [UsuarioController::class, 'store']
+)->name('usuario.store');
+
+Route::get('/usuario/edit/{id}',
+    [UsuarioController::class, 'edit'])->name('usuario.edit');
+Route::put(
+    '/usuario/update/{id}',
+    [UsuarioController::class, 'update']
+)->name('usuario.update');
+
+Route::delete(
+    '/usuario/{id}',
+    [UsuarioController::class, 'destroy']
+)->name('usuario.destroy');
+
+Route::post(
+    '/usuario/search',
+    [UsuarioController::class, 'search']
+)->name('usuario.search');
+Route::get('/clientes', function () {
+    return view('clientes'); 
 });
-*/

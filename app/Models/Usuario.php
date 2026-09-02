@@ -10,6 +10,6 @@ class Livraria extends Model
     
 {
     use HasFactory;
-    protected $table = 'livraria';
-    protected $fillable = ['nome','valor','autor','genero'];
+    protected $table = 'usuario';
+    protected $fillable = ['nome','cpf','endereco','email','numero'];
 }
