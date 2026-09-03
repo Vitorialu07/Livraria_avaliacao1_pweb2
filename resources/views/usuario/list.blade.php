@@ -1,5 +1,5 @@
 @extends('main')
-@section('titulo', 'Listagem de Usuario')
+@section('titulo', 'Listagem de Usuários')
 @section('conteudo')
     <div class="row">
 
@@ -11,10 +11,10 @@
                     <label for="nome">Tipo</label>
                     <select name="tipo" class="form-select">
                         <option value="nome">Nome</option>
-                        <option value="cpf">cpf</option>
-                        <option value="endereco">Endereco</option>
+                        <option value="cpf">CPF</option>
+                        <option value="endereco">Endereço</option>
                         <option value="email">Email</option>
-                        <option value="numero">Numero</option>
+                        <option value="telefone">Telefone</option>
                     </select>
                 </div>
                 <div class="col-5">
@@ -37,12 +37,10 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">cpf</th>
-                    <th scope="col">Enredeço</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Endereço</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Ação</th>
-                    <th scope="col">Ação</th>
+                    <th scope="col">Telefone</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,7 +51,7 @@
                         <td>{{ $item->cpf }}</td>
                         <td>{{ $item->endereco }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->numero }}</td>
+                        <td>{{ $item->telefone }}</td>
                         <td>
                             <a class='btn btn-warning' title='Editar' href="{{ route('usuario.edit', $item->id) }}">Editar</a>
                         </td>
@@ -61,8 +59,7 @@
                             <form action="{{ route('usuario.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class='btn btn-danger' title='Exclur'
-                                    onclick='return confirm(\"Deseja Excluir?\")'>Deletar</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Deseja Excluir?')">Deletar</button>
                             </form>
                         </td>
                     </tr>

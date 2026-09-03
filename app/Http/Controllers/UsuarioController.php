@@ -27,13 +27,13 @@ class UsuarioController extends Controller
             'cpf' => 'required',
             'endereco' => 'required',
             'email' => 'required',
-            'numero' => 'required',
+            'telefone' => 'required',
         ], [
             'nome.required' => "O :attribute é obrigatorio",
             'cpf.required' => "O :attribute é obrigatorio",
             'endereco.required' => "O :attribute é obrigatorio",
             'email.required' => "O :attribute é obrigatorio",
-            'numero.required' => "O :attribute é obrigatorio"
+            'telefone.required' => "O :attribute é obrigatorio"
 
         ]);
     }

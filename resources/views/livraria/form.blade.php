@@ -1,5 +1,5 @@
 @extends('main')
-@section('titulo', 'Formulário de Livraria')
+@section('titulo', 'Formulário da Livraria Angelim')
 @section('conteudo')
     <div class="row">
         @php
@@ -19,22 +19,34 @@
 
             <input type="hidden" name="id" value="{{ old('id', $data->id ?? '') }}">
             <div class="col-6">
-                <label for="nome">Nome</label>
+                <label for="nome">Título</label>
                 <input type="text" name="nome" class="form-control" value="{{ old('nome', $data->nome ?? '') }}">
             </div>
             <div class="col-6">
-                <label for="valor">valor</label>
+                <label for="valor">Valor</label>
                 <input type="valor" name="valor" class="form-control" value="{{ old('valor', $data->valor ?? '') }}">
             </div>
             <div class="col-6">
-                <label for="autor">autor</label>
+                <label for="autor">Autor(a)</label>
                 <input type="text" name="autor" class="form-control"
                     value="{{ old('autor', $data->autor ?? '') }}">
             </div>
             <div class="col-6">
-                <label for="genero">genero</label>
+                <label for="genero">Gênero literário</label>
                 <input type="text" name="genero" class="form-control"
                     value="{{ old('genero', $data->genero ?? '') }}">
+
+            <div class="col-6">
+                <label for="categoria_id">Categoria especial</label>
+                <select name="categoria_id" class="form-select">
+                    @foreach($categorias as $item)
+                    <option value="{{$item->id}}"
+                    {{old ('categoria_id', $data->categoria_id ?? '') ==
+                    $item->id ? 'selected' : ''}}>
+                    {{$item->nome}}</option>
+                    @endforeach
+                </select>
+            </div>        
             </div>
             <div class="mt-2">
                 <button type="submit" class="btn btn-success">Salvar</button>

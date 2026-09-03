@@ -3,17 +3,23 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    use WithoutModelEvents;
+
+    public function run(): void
     {
-        \App\Models\LIvraria::factory(10)->create();
+        $this->call([
+            CategoriaLivroSeeder::class,
+            LivrariaSeeder::class,
+            AvaliacaoSeeder::class,
+
+        ]);
+        
+        \App\Models\Livraria::factory(10)->create();
         \App\Models\Usuario::factory(10)->create();
+        \App\Models\Avaliacao::factory(10)->create();
+        \App\Models\CategoriaLivro::factory(6)->create();
     }
 }

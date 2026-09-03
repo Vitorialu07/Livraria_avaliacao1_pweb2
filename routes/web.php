@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivrariaController;
-use App\Http\Controllers\UsuarioController; // 1. IMPORTADO O CONTROLLER FALTANTE
+use App\Http\Controllers\UsuarioController; 
+use App\Http\Controllers\AvaliacaoController;// 1. IMPORTADO O CONTROLLER FALTANTE
 
 Route::get('/', function () {
     return view('main');
@@ -29,3 +30,12 @@ Route::get('/usuario/search', [UsuarioController::class, 'search'])->name('usuar
 Route::get('/clientes', function () {
     return view('clientes'); 
 });
+
+// Rotas de Avaliação 
+Route::get('/avaliacao', [AvaliacaoController::class, 'index'])->name('avaliacao.index'); // 2. ROTA GET ADICIONADA
+Route::get('/avaliacao/create', [AvaliacaoController::class, 'create'])->name('avaliacao.create'); 
+Route::post('/avaliacao/store', [AvaliacaoController::class, 'store'])->name('avaliacao.store');
+Route::get('/avaliacao/edit/{id}', [AvaliacaoController::class, 'edit'])->name('avaliacao.edit');
+Route::put('/avaliacao/update/{id}', [AvaliacaoController::class, 'update'])->name('avaliacao.update');
+Route::delete('/avaliacao/{id}', [AvaliacaoController::class, 'destroy'])->name('avaliacao.destroy');
+Route::post('/avaliacao/search', [AvaliacaoController::class, 'search'])->name('avaliacao.search'); 

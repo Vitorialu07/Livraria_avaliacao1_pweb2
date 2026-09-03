@@ -6,7 +6,7 @@ use App\Models\Livraria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\CategoriaLivraria;
 /**
- * @extends Factory<Aluno>
+ * @extends Factory<Livraria>
  */
 class LivrariaFactory extends Factory
 {

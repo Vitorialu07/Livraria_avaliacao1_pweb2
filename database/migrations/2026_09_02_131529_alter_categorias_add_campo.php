@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-    }
+        Schema::disableForeignKeyConstraints();
 
-    /**
-     * Reverse the migrations.
-     */
+        Schema::table('livraria', function (Blueprint $table) {
+        $table->foreignId('categoria_livro_id')->nullable()->constrained('categoria_livros');
+    });
+
+        Schema::enableForeignKeyConstraints();
+    }
     public function down(): void
     {
         //

@@ -10,7 +10,7 @@
             }
         @endphp
 
-        <h4>Formulário Usiario</h4>
+        <h4>Formulário Usuario</h4>
         <form action="{{ $action }}" method="post">
             @csrf
             @if (!empty($data->id))
@@ -37,9 +37,9 @@
                     value="{{ old('email', $data->email ?? '') }}">
             </div>
             <div class="col-6">
-                <label for="numero">Numero</label>
-                <input type="text" name="numero" class="form-control"
-                    value="{{ old('numero', $data->numero ?? '') }}">
+                <label for="telefone">Telefone</label>
+                <input type="text" name="telefone" class="form-control"
+                    value="{{ old('telefone', $data->telefone ?? '') }}">
             </div>
             <div class="mt-2">
                 <button type="submit" class="btn btn-success">Salvar</button>

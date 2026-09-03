@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Avaliacao;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\CategoriaAluno;
 
-class CategoriaAlunoSeeder extends Seeder
+class AvaliacaoSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        CategoriaAluno::factory()->count(4)->create();
+        Avaliacao::factory()->count(5)->create();
     }
 }
+    
+

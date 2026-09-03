@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Livraria;
-
+use App\Models\CategoriaLivro;
 use Illuminate\Http\Request;
 
 class LivrariaController extends Controller
@@ -16,7 +16,8 @@ class LivrariaController extends Controller
 
     function create()
     {
-        return view('livraria.form');
+        $categorias= CategoriaLivro::orderBy('categoria')->get();
+        return view('livraria.form', compact('categorias'));
     }
 
 
@@ -41,19 +42,17 @@ class LivrariaController extends Controller
         return redirect('livraria')->with("success", 'Registro Salvo com sucesso!');
     }
 
-    function edit($id)
+    function edit(int $id)
     {
         $data = Livraria::find($id);
-
-        // dd($data);
-        //return view('livraria.form')->with(['data' => $data]);
-        return view('livraria.form', compact('data'));
+        $categorias = CategoriaLivro::all();
+        return view('livraria.form', compact('data', 'categorias'));
+     
     }
 
 
-    function update(Request $request, $id)
+    function update(Request $request,  int $id)
     {
-        //dd($request->all());
         $this->validateForm($request);
 
         Livraria::find($id)->update($request->all());
@@ -61,7 +60,7 @@ class LivrariaController extends Controller
         return redirect('livraria')->with("success", 'Registro Atualizado com sucesso!');
     }
 
-    function destroy($id)
+    function destroy(int $id)
     {
         Livraria::destroy($id);
 

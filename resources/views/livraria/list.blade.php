@@ -1,9 +1,9 @@
 @extends('main')
-@section('titulo', 'Listagem de Livraria')
+@section('titulo', 'Listagem de Livros')
 @section('conteudo')
     <div class="row">
 
-        <h3>Listagem de Livraria</h3>
+        <h3>Livros disponíveis</h3>
         <form action="{{ route('livraria.search') }}" method="post">
             @csrf
             <div class="row">
@@ -39,8 +39,8 @@
                     <th scope="col">Valor</th>
                     <th scope="col">Autor</th>
                     <th scope="col">Genero</th>
-                    <th scope="col">Ação</th>
-                    <th scope="col">Ação</th>
+                    <th scope="col">Categoria</th> 
+                    <th scope="col" colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +51,7 @@
                         <td>{{ $item->valor }}</td>
                         <td>{{ $item->autor }}</td>
                         <td>{{ $item->genero }}</td>
+                        <td>{{ $item->categoriaLivro?->categoria }}</td>
                         <td>
                             <a class='btn btn-warning' title='Editar' href="{{ route('livraria.edit', $item->id) }}">Editar</a>
                         </td>
@@ -58,8 +59,7 @@
                             <form action="{{ route('livraria.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class='btn btn-danger' title='Exclur'
-                                    onclick='return confirm(\"Deseja Excluir?\")'>Deletar</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Deseja Excluir?')">Deletar</button>
                             </form>
                         </td>
                     </tr>

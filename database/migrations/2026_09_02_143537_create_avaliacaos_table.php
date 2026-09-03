@@ -6,15 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('categoria_alunos', function (Blueprint $table) {
+        Schema::create('avaliacaos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 89);
-            $table->string('nivel', 40)->nullable();
+            $table->string('livro', 50);
+            $table->string('autor', 50);
+            $table->dateTime('data')->nullable();
+            $table->string('avaliacao', 1000);
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categoria_alunos');
+        Schema::dropIfExists('avaliacaos');
     }
 };
