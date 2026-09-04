@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Usuario extends Model
-    
 {
     use HasFactory;
+
+    // Aponta explicitamente para a tabela 'usuarios' no banco de dados
     protected $table = 'usuarios';
+
+    // Libera esses dados pessoais (nome, CPF, endereço, e-mail e telefone) para serem salvos ou atualizados via formulário
     protected $fillable = ['nome','cpf','endereco','email','telefone'];
 }
