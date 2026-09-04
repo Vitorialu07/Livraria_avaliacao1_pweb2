@@ -19,13 +19,15 @@ class Livraria extends Model
         'valor',
         'autor',
         'genero',
-        'categoria.id'];
-
-    protected $cast =[
-        'categoria.id'=>'integer'
+        'categoria_id'
     ];
-    
-    public function categoriaLivro(){
+
+    protected $cast = [
+        'categoria_id' => 'integer'
+    ];
+
+    public function categoriaLivro()
+    {
         return $this->belongsTo(CategoriaLivro::class, 'categoria_id');
     } //função que é chamada no list
 }

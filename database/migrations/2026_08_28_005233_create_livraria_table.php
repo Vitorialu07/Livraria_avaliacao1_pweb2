@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('livraria', function (Blueprint $table) {
             $table->id();
-            $table-> string('nome');
-            $table-> string('autor');
-            $table-> decimal('valor');
-            $table-> string('genero');// tamanho 
+            $table->string('nome');
+            $table->string('autor');
+            $table->decimal('valor');
+            $table->string('genero'); // tamanho 
+            $table->foreignId('categoria_id')->constrained('categoria_livros');
             $table->timestamps();
         });
     }

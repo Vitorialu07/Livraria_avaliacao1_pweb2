@@ -10,7 +10,7 @@ Route::get('/', function () {
 });
 
 // Rotas de Livraria
-Route::get('/livraria', [LivrariaController::class, 'index']);
+Route::get('/livraria',[LivrariaController::class, 'index']);
 Route::get('/livraria/create', [LivrariaController::class, 'create']);
 Route::post('/livraria/store', [LivrariaController::class, 'store'])->name('livraria.store');
 Route::get('/livraria/edit/{id}', [LivrariaController::class, 'edit'])->name('livraria.edit');

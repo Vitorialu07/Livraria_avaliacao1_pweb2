@@ -11,7 +11,7 @@ class LivrariaController extends Controller
     // Puxa todos os livros/itens cadastrados no banco e carrega na tela de listagem
     public function index()
     {
-       $dados = Livraria::with('categoriaLivro')->get();
+        $dados = Livraria::with('categoriaLivro')->get();
         return view('livraria.list', compact('dados'));
     }
 
@@ -19,6 +19,7 @@ class LivrariaController extends Controller
     function create()
     {
         $categorias = CategoriaLivro::orderBy('categoria')->get();
+        // dd($categorias);
         return view('livraria.form', compact('categorias'));
     }
 
@@ -28,21 +29,23 @@ class LivrariaController extends Controller
         $request->validate([
             'nome' => 'required',
             'valor' => 'required',
+            'categoria_id' => 'required',
         ], [
             'nome.required' => "O :attribute é obrigatorio",
-            'valor.required' => "O :attribute é obrigatorio"
+            'valor.required' => "O :attribute é obrigatorio",
+            'categoria_id.required' => "O :attribute é obrigatorio"
         ]);
     }
 
     // Valida os dados enviados do formulário e salva o novo item direto no banco
     function store(Request $request)
     {
-        //dd($request->all()); // Esse dd tava aqui só pra debugar os dados se precisasse
+        //  dd($request->all()); // Esse dd tava aqui só pra debugar os dados se precisasse
         $this->validateForm($request);
 
         Livraria::create($request->all());
 
-        return redirect('livraria')->with("success", 'Registro Salvo com sucesso!');
+        return redirect('livraria'); 
     }
 
     // Procura o item pelo ID e carrega o formulário com os dados dele + a lista de categorias pra alterar
@@ -78,7 +81,8 @@ class LivrariaController extends Controller
             $dados = Livraria::with('categoriaLivro')->where(
                 $request->tipo,
                 'like',
-                "%$request->valor%")->get();
+                "%$request->valor%"
+            )->get();
         } else {
             // Se o usuário clicou em buscar mas não digitou nada, só puxa tudo de volta
             $dados = Livraria::with('categoriaLivro')->get;
