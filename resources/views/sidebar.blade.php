@@ -4,20 +4,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Página inicial</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('livraria') }}">Livros</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="{{ url('avaliacao') }}">Avaliações</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('usuario') }}">Usuário</a>
-        </li>
-      </ul>
+    
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <!-- url('/') vai chamar a rota principal que configuramos no web.php -->
+                <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Página inicial</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('livraria') }}">Livros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('avaliacao') }}">Avaliações</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('usuario') }}">Usuário</a>
+            </li>
+        </ul>
     </div>
   </div>
 </nav>
