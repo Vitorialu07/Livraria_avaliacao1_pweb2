@@ -10,16 +10,14 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        $this->call([
-            CategoriaLivroSeeder::class,
-            LivrariaSeeder::class,
-            AvaliacaoSeeder::class,
+        //this call apagado para não duplicar dados
+        $categorias = \App\Models\CategoriaLivro::factory(6)->create();
 
-        ]);
-        
-        \App\Models\Livraria::factory(10)->create();
+
         \App\Models\Usuario::factory(10)->create();
         \App\Models\Avaliacao::factory(10)->create();
-        \App\Models\CategoriaLivro::factory(6)->create();
+        \App\Models\Livraria::factory(15)->create([
+        'categoria_id' => fn () => $categorias->random()->id,
+    ]);  //função usada para não criar uma cateogoria para cada livro 
     }
 }

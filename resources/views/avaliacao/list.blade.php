@@ -30,7 +30,7 @@
     </div>
 
 
-    <div class="row mt-4">
+    <div class="row mt-4"> //cabeçalho
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -39,6 +39,7 @@
                     <th scope="col">Autor</th>
                     <th scope="col">Data</th>
                     <th scope="col">Avaliação</th>
+                    <th scope="col" colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody>

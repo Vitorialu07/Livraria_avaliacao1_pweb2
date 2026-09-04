@@ -14,5 +14,18 @@ class Livraria extends Model
     protected $table = 'livraria';
 
     // Libera esses campos para serem cadastrados ou alterados direto pelos formulários
-    protected $fillable = ['nome','valor','autor','genero'];
+    protected $fillable = [
+        'nome',
+        'valor',
+        'autor',
+        'genero',
+        'categoria.id'];
+
+    protected $cast =[
+        'categoria.id'=>'integer'
+    ];
+    
+    public function categoriaLivro(){
+        return $this->belongsTo(CategoriaLivro::class, 'categoria_id');
+    } //função que é chamada no list
 }

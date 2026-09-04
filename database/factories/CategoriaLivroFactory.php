@@ -21,7 +21,7 @@ class CategoriaLivroFactory extends Factory
 
         }
         return [
-            'categoria'=>fake()->randomElement($categoria),
+            'categoria'=>fake()->unique()->randomElement($categoria),
         ];
     }
 }

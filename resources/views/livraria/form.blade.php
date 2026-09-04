@@ -1,5 +1,5 @@
 @extends('main')
-@section('titulo', 'Formulário da Livraria Angelim')
+@section('titulo', 'Formulário da Livraria Acácia')
 @section('conteudo')
     <div class="row">
         @php
@@ -43,7 +43,7 @@
                     <option value="{{$item->id}}"
                     {{old ('categoria_id', $data->categoria_id ?? '') ==
                     $item->id ? 'selected' : ''}}>
-                    {{$item->nome}}</option>
+                    {{$item->categoria}}</option>
                     @endforeach
                 </select>
             </div>        

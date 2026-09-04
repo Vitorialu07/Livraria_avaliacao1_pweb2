@@ -41,6 +41,7 @@
                     <th scope="col">Endereço</th>
                     <th scope="col">Email</th>
                     <th scope="col">Telefone</th>
+                    <th scope="col" colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody>

@@ -11,7 +11,7 @@ class LivrariaController extends Controller
     // Puxa todos os livros/itens cadastrados no banco e carrega na tela de listagem
     public function index()
     {
-        $dados = Livraria::all(); 
+       $dados = Livraria::with('categoriaLivro')->get();
         return view('livraria.list', compact('dados'));
     }
 
@@ -75,14 +75,13 @@ class LivrariaController extends Controller
     public function search(Request $request)
     {
         if (!empty($request->valor)) {
-            $dados = Livraria::where(
+            $dados = Livraria::with('categoriaLivro')->where(
                 $request->tipo,
                 'like',
-                "%$request->valor%"
-            )->get();
+                "%$request->valor%")->get();
         } else {
             // Se o usuário clicou em buscar mas não digitou nada, só puxa tudo de volta
-            $dados = Livraria::All();
+            $dados = Livraria::with('categoriaLivro')->get;
         }
 
         return view('livraria.list', compact('dados'));

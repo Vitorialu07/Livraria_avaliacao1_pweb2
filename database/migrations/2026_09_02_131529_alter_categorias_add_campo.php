@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::table('livraria', function (Blueprint $table) {
-        $table->foreignId('categoria_livro_id')->nullable()->constrained('categoria_livros');
+        $table->foreignId('categoria_id')->constrained('categoria_livros');
     });
 
         Schema::enableForeignKeyConstraints();
